@@ -4,10 +4,10 @@ Make sure that the following tool follows the User Centered Ideas discussed in c
 Create a utility that will allow the user to select a sprite sheet (which has been sliced into multiple sprites), and then create animations from that sprite sheet. 
 Each animation should have its own options for: 
 
-•	Looping
-•	Ping-ponging
-•	Start Frame
-•	End Frame
+1. Looping
+2. Ping-ponging
+3. Start Frame
+4. End Frame
 
 Make sure that the end frame cannot be higher than the number of frames the sprite sheet has been broken up into! (Hint: you may to have to research the function you use to load the sprites)
 
