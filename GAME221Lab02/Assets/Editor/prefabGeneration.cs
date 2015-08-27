@@ -16,18 +16,20 @@ public class prefabGeneration : MonoBehaviour {
 
 			if(AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)))
 			{
-				Debug.Log("Asset exists!");
+				//Debug.Log("Asset exists!");
 				if(EditorUtility.DisplayDialog("Caution", "Prefab already exists."+
 				                               "Do You Want to overwrite?","Yes","No"))
 				{
-					Debug.Log("Overwriting!");
+					//Debug.Log("Overwriting!");
+					CreateNew(go, assetPath);
 				}
 			}
 			else
 			{
-				Debug.Log ("Asset does not exist!");
+				//Debug.Log ("Asset does not exist!");
+				CreateNew (go, assetPath);
 			}
-			Debug.Log ("Name:"+ go.name + " Path:"+ assetPath);
+			//Debug.Log ("Name:"+ go.name + " Path:"+ assetPath);
 		}
 	}
 
@@ -38,7 +40,7 @@ public class prefabGeneration : MonoBehaviour {
 		AssetDatabase.Refresh ();
 
 		DestroyImmediate (obj);
-		GameObject clone = PrefabUtility.InstantiatePrefab as GameObject;
+		GameObject clone = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
 	}
 
 	// Use this for initialization
