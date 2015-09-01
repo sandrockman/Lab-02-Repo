@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\AnimationGeneration.cs" />
+     <Compile Include="Assets\Editor\AnimationPrefab.cs" />
      <Compile Include="Assets\Editor\folderStructure.cs" />
      <Compile Include="Assets\Editor\prefabGeneration.cs" />
      <None Include="Assets\Dynamic Assets\Scripts\folderStructure.txt" />
