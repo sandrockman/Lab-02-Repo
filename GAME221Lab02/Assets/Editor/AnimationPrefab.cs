@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
-public class AnimationPrefab : MonoBehaviour {
+public class AnimationPrefab : EditorWindow {
 
 	public static Object selectedObject;
 	
@@ -38,7 +39,7 @@ public class AnimationPrefab : MonoBehaviour {
 			//Display the object's name that the animations will be created from
 			EditorGUILayout.LabelField ("Animations for " + selectedObject.name);
 			Object[] sprites = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(selectedObject));
-			int spriteCount = sprites.GetLength;
+			int spriteCount = sprites.Length;
 			//Display the number of sprites in the sheet
 			EditorGUILayout.LabelField ("Number of Sprites: " + spriteCount);
 			//create a space
@@ -125,10 +126,10 @@ public class AnimationPrefab : MonoBehaviour {
 					controller.AddMotion (tempClip);
 
 				}
+
+				CreatePrefab (controller);
+
 			}
-
-
-
 		}
 	}
 	
@@ -224,7 +225,45 @@ public class AnimationPrefab : MonoBehaviour {
 			this.Close ();
 		}
 	}
+
+	public static void CreatePrefab(Object go) 
+	{
+		GameObject newObject = new GameObject ();
+		Animator newAnimator = newObject.AddComponent<Animator> ();
+		newAnimator = (Animator)go;
+
+		string name = go.name;
+		string assetPath = "Assets/" + name + ".prefab";
+			
+		if(AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)))
+		{
+			//Debug.Log("Asset exists!");
+			if(EditorUtility.DisplayDialog("Caution", "Prefab already exists."+
+			                               "Do You Want to overwrite?","Yes","No"))
+			{
+				//Debug.Log("Overwriting!");
+				CreateNew(newObject, assetPath);
+			}
+		}
+		else
+		{
+			//Debug.Log ("Asset does not exist!");
+			CreateNew (newObject, assetPath);
+		}
+		//Debug.Log ("Name:"+ go.name + " Path:"+ assetPath);
+
+	}
 	
+	public static void CreateNew(GameObject obj, string location)
+	{
+		Object prefab = PrefabUtility.CreateEmptyPrefab (location);
+		PrefabUtility.ReplacePrefab (obj, prefab);
+		AssetDatabase.Refresh ();
+		
+		DestroyImmediate (obj);
+		GameObject clone = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+	}
+
 	// Use this for initialization
 	void Start () {
 		

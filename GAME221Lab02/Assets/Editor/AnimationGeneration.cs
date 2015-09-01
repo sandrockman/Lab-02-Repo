@@ -17,7 +17,7 @@ public class AnimationGeneration : EditorWindow {
 	bool[] loop = new bool[100];
 
 	// Menu Item used to create 2D Animations from a selected and prepared sprite sheet
-	[MenuItem("Project Tools/2D Animations")]
+	[MenuItem("Project Tools/2D Animation Prefab")]
 	public static void Init()
 	{
 		//Grab the active object
