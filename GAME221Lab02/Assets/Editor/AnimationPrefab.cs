@@ -98,12 +98,12 @@ public class AnimationPrefab : EditorWindow {
 				{
 					//if the end frame of an iteration is greater than the total number of frames, a prompt is generated to see
 					//if the user wishes to change it to the last available frame. Otherwise the iteration is skipped
-					if(endFrames[j] > spriteCount)
+					if(endFrames[j] >= spriteCount)
 					{
 						if(EditorUtility.DisplayDialog("Caution", "End Frame of animation"+ j +" exceeds last frame available.\n" +
 						                               "Change to last frame?", "Yes", "No"))
 						{
-							endFrames[j] = spriteCount;
+							endFrames[j] = spriteCount-1;
 						}
 						else
 						{
@@ -126,8 +126,8 @@ public class AnimationPrefab : EditorWindow {
 					controller.AddMotion (tempClip);
 
 				}
-
-				CreatePrefab (controller);
+			
+				//CreatePrefab (controller);
 
 			}
 		}

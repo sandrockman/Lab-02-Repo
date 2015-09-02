@@ -48,19 +48,19 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\AnimationGeneration.cs" />
      <Compile Include="Assets\Editor\AnimationPrefab.cs" />
+     <Compile Include="Assets\Editor\MakeAnimations.cs" />
      <Compile Include="Assets\Editor\folderStructure.cs" />
      <Compile Include="Assets\Editor\prefabGeneration.cs" />
-     <None Include="Assets\Dynamic Assets\Scripts\folderStructure.txt" />
-     <None Include="Assets\Dynamic Assets\Editor\folderStructure.txt" />
+     <None Include="Assets\Scripts\folderStructure.txt" />
      <None Include="Assets\Static Assets\folderStructure.txt" />
      <None Include="Assets\folderStructure.txt" />
      <None Include="Assets\Dynamic Assets\folderStructure.txt" />
-     <None Include="Assets\Dynamic Assets\Gizmos\folderStructure.txt" />
+     <None Include="Assets\Gizmos\folderStructure.txt" />
      <None Include="Assets\Testing\folderStructure.txt" />
      <None Include="Assets\Dynamic Assets\Resources\folderStructure.txt" />
-     <None Include="Assets\Dynamic Assets\Plugins\folderStructure.txt" />
+     <None Include="Assets\Plugins\folderStructure.txt" />
      <None Include="Assets\Shaders\folderStructure.txt" />
-     <None Include="Assets\Dynamic Assets\Extensions\folderStructure.txt" />
+     <None Include="Assets\Extensions\folderStructure.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
